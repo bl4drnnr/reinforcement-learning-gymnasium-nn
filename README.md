@@ -1,1 +1,7 @@
-# reinforcement-learning-gymnasium-nn
+# Reinforcement Learning - Gymnasium Neural Networks
+
+The goal of this lab is to complete the implementation of an actor-critic learning algorithm (variant TD(0) with-policy), and then test how well it performs in solving two episodic problems: a simple one (balancing a pole on a moving cart) and a more difficult one (reaching the planet's surface safely with a lander) using `gymnasium` framework and `CartPole-v1` and `LunarLander-v3`.
+
+For the specific implementation of the algorithm, we will use one of the most universal techniques for function approximation — a deep neural network. Our implementation will have two hidden layers, shared by the actor and the critic. The actor's output layer uses softmax activation — similarly to classification problems, we need to assign probabilities to elements of a certain set. The critic's output layer uses linear activation, which effectively does not use any activation: we want to ensure its full expressive power over the entire range of work. 
+
+In the basic version, our network should have H1 = 1024 neurons in the first hidden layer and H2 = 256 neurons in the second hidden layer. We can assume a discount factor of $\gamma = 0.99$. Actor-critic systems are extremely unstable, and additionally, training our network is based on individual examples (not batches of them) — so we have to modify the weights very slowly. For this purpose, we assume a training step size of $\alpha = 0.00001$.
